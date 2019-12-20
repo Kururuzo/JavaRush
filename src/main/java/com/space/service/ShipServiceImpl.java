@@ -45,13 +45,13 @@ public class ShipServiceImpl implements ShipService {
 
         final List<Ship> result = new ArrayList<>();
 
-        Calendar calendarThisShip = Calendar.getInstance();
-        Integer prodYearBefore = null;
-        Calendar calendarBefore = Calendar.getInstance();
-            if (before != null) {
-                calendarBefore.setTimeInMillis(before);
-                prodYearBefore = calendarBefore.get(Calendar.YEAR);
-            }
+//        Calendar calendarThisShip = Calendar.getInstance();
+//        Integer prodYearBefore = null;
+//        Calendar calendarBefore = Calendar.getInstance();
+//            if (before != null) {
+//                calendarBefore.setTimeInMillis(before);
+//                prodYearBefore = calendarBefore.get(Calendar.YEAR);
+//            }
 
 //        Calendar calendarAfter = Calendar.getInstance();
 //        Integer prodYearAfter = null;
@@ -64,15 +64,15 @@ public class ShipServiceImpl implements ShipService {
 
         while (iterator.hasNext()) {
             Ship ship = iterator.next();
-            calendarThisShip.setTime(ship.getProdDate());
-            int prodYearShip = calendarThisShip.get(Calendar.YEAR);
+//            calendarThisShip.setTime(ship.getProdDate());
+//            int prodYearShip = calendarThisShip.get(Calendar.YEAR);
             if (
                     (name == null || ship.getName().contains(name)) &&
                     (planet == null || ship.getPlanet().contains(planet)) &&
                     (shipType == null || ship.getShipType() == shipType) &&
-//                    (before == null || ship.getProdDate().before(new Date(before))) &&
-                    (before == null || prodYearShip < prodYearBefore) && // todo: working!!!! but why???
-                     (after == null || ship.getProdDate().after(new Date(after))) &&
+                    (before == null || ship.getProdDate().before(new Date(before))) &&
+//                    (before == null || prodYearShip < prodYearBefore) && // todo: working!!!! but why???
+                    (after == null || ship.getProdDate().after(new Date(after))) &&
 //                    (after == null || prodYearShip > prodYearAfter) &&
 //                    (isUsed == null || ship.getUsed().booleanValue() == isUsed.booleanValue()) &&
                     (isUsed == null || ship.getUsed() == isUsed) &&
